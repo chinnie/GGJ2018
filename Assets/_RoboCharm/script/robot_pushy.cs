@@ -23,19 +23,17 @@ public class robot_pushy : MonoBehaviour {
         if (!RobotUseful)
         {
             //plays animation in place
-            endPosition = new Vector3(transform.position.x, startPosition.y + 2, transform.position.z);
+
+            // jumps up wards
+           
         } else
         {
             endPosition = goalPosition;
         }
         if (isActive) {
 
-            //move forward
-            if (startPosition != endPosition)
-            {
-                transform.position = Vector3.Lerp(transform.position, endPosition, speed * Time.deltaTime);
-            }
-
+            //jump upwards and forward
+           
         } 
 	}
 
