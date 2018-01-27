@@ -5,15 +5,15 @@ using UnityEngine;
 public class robot_boomy : MonoBehaviour {
     [SerializeField] private bool RobotUseful = true;
     [SerializeField] private bool isActive = false;
-    [SerializeField] private float speed;
-    [SerializeField] private Vector3 goalPosition;
-    private Vector3 endPosition;
-    private Vector3 startPosition;
+    [SerializeField] private GameObject explosion;
+    [SerializeField] private AudioSource explosionSound;
+
+
 
     // Use this for initialization
     void Start()
     {
-        startPosition = transform.position;
+        
 
     }
 
@@ -25,20 +25,22 @@ public class robot_boomy : MonoBehaviour {
         {
             //plays animation in place
 
-            // dance
+            // dance or wobble
 
         }
-        else
-        {
-            endPosition = goalPosition;
-        }
-        if (isActive)
+        
+        if (isActive && RobotUseful)
         {
 
             //explode
-
+            Instantiate(explosion, transform.position, transform.rotation);
+            explosionSound.Play();
+            Destroy(gameObject);
         }
     }
+
+
+
 
     //When activated perform this action
     void Activate()
@@ -51,7 +53,6 @@ public class robot_boomy : MonoBehaviour {
     void Toggle()
     {
         RobotUseful = !RobotUseful;
-        // reset EndPostion
-        endPosition = goalPosition;
+
     }
 }
