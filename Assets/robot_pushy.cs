@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class robot_pushy : MonoBehaviour {
 
-    private bool RobotUseful = false;
+    private bool RobotUseful = true;
     private bool isActive = true;
-    [SerializeField] private int speed;
+    [SerializeField] private float speed;
     [SerializeField] private Vector3 endPosition;
     private Vector3 startPosition;
 
@@ -21,8 +21,10 @@ public class robot_pushy : MonoBehaviour {
         if (isActive & RobotUseful) {
 
             //move forward
-
-            transform.position = Vector3.Lerp(startPosition, endPosition, speed * Time.deltaTime);
+            if (startPosition != endPosition)
+            {
+                transform.position = Vector3.Lerp(transform.position, endPosition, speed * Time.deltaTime);
+            }
 
         } else if (isActive & !RobotUseful)
         {
