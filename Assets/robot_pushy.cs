@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class robot_pushy : MonoBehaviour {
 
-    private bool RobotUseful = true;
-    private bool isActive = true;
+    [SerializeField] private bool RobotUseful = true;
+    [SerializeField] private bool isActive = true;
     [SerializeField] private float speed;
-    [SerializeField] private Vector3 endPosition;
+    [SerializeField] private Vector3 goalPosition;
+    private Vector3 endPosition;
     private Vector3 startPosition;
 
 	// Use this for initialization
@@ -18,7 +19,16 @@ public class robot_pushy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isActive & RobotUseful) {
+
+        if (!RobotUseful)
+        {
+            //plays animation in place
+            endPosition = new Vector3(transform.position.x, startPosition.y + 2, transform.position.z);
+        } else
+        {
+            endPosition = goalPosition;
+        }
+        if (isActive) {
 
             //move forward
             if (startPosition != endPosition)
@@ -26,11 +36,7 @@ public class robot_pushy : MonoBehaviour {
                 transform.position = Vector3.Lerp(transform.position, endPosition, speed * Time.deltaTime);
             }
 
-        } else if (isActive & !RobotUseful)
-        {
-            //plays animation in place
-        }
-		
+        } 
 	}
 
     //When activated perform this action
@@ -44,5 +50,7 @@ public class robot_pushy : MonoBehaviour {
     void Toggle()
     {
         RobotUseful = !RobotUseful;
+        // reset EndPostion
+        endPosition = goalPosition;
     }
 }
