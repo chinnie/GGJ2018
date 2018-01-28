@@ -97,7 +97,7 @@ public class PushyBehavior : MonoBehaviour, IRobot
             {
                 IsActive = false;
                 var bots = GameObject.FindGameObjectsWithTag("Bot");
-                
+
                 foreach (var bot in bots)
                 {
                     if (bot.GetComponent<IRobot>() != null)
@@ -107,6 +107,20 @@ public class PushyBehavior : MonoBehaviour, IRobot
                     else
                     {
                         Debug.Log("Bots need tag AND IRobot!");
+                    }
+                }
+
+                var props = GameObject.FindGameObjectsWithTag("Pushable");
+
+                foreach (var prop in props)
+                {
+                    if (prop.GetComponent<IInteractable>() != null)
+                    {
+                        prop.GetComponent<IInteractable>().ReSnapToGrid();
+                    }
+                    else
+                    {
+                        Debug.Log("Props need tag AND IInteractable!");
                     }
                 }
             }
@@ -160,19 +174,19 @@ public class PushyBehavior : MonoBehaviour, IRobot
             Debug.Log(hit.collider.gameObject.transform.position);
 
             distance = Vector3.Distance(hit.transform.position, this.StartPosition);
-            distance = Mathf.FloorToInt(distance) - 1;
+            distance = Mathf.Clamp(Mathf.FloorToInt(distance) - 1, 0.0f, 10.0f);
 
             // Do we push something?
             // Calculate new goal based off pushability of target.
 
             if (Physics.Raycast(hit.transform.position, fwd, out hit2, 10))
             {
-                if (hit.collider.gameObject.tag == "Bot")
+                if (hit.collider.gameObject.tag == "Bot" || hit.collider.gameObject.tag == "Pushable")
                 {
                     Debug.Log(hit.collider.gameObject.transform.position);
 
                     distance2 = Vector3.Distance(hit2.transform.position, hit.transform.position);
-                    distance2 = Mathf.FloorToInt(distance2) - 1;
+                    distance2 = Mathf.Clamp(Mathf.FloorToInt(distance2) - 1, 0.0f, 10.0f);
                 }
             }
         }
@@ -182,6 +196,7 @@ public class PushyBehavior : MonoBehaviour, IRobot
             distance = 10.0f;
         }
 
+        Debug.Log("Distance :" + distance + "+" + distance2);
         timeTakenDuringLerp = (distance + distance2) / speed;
         return this.transform.position + transform.forward * (distance + distance2);
     }
