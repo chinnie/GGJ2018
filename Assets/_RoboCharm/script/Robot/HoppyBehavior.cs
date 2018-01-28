@@ -8,6 +8,13 @@ public class HoppyBehavior : MonoBehaviour, IRobot
     [SerializeField] Vector3 _endposition;
     [SerializeField] bool _UseAltBehavior = false;
 
+    private bool IsSpinning = false;
+    private float _spintimeStartedLerping;
+    private float spintimeTakenDuringLerp = 1.0f;
+
+    Quaternion fromAngle;
+    Quaternion toAngle;
+
     public Vector3 StartPosition
     {
         get
@@ -55,6 +62,18 @@ public class HoppyBehavior : MonoBehaviour, IRobot
     // Update is called once per frame
     void Update()
     {
+        if (IsSpinning)
+        {
+            float spintimeSinceStarted = Time.time - _spintimeStartedLerping;
+            float spinpercentageComplete = spintimeSinceStarted / spintimeTakenDuringLerp;
+
+            transform.rotation = Quaternion.Lerp(fromAngle, toAngle, spinpercentageComplete);
+
+            if (spinpercentageComplete >= 1.0f)
+            {
+                IsSpinning = false;
+            }
+        }
     }
 
     public void TriggerAction()
@@ -71,6 +90,21 @@ public class HoppyBehavior : MonoBehaviour, IRobot
 
     public void Spin(bool AlternateBehavior)
     {
-     
+        int angle = 90;
+        _spintimeStartedLerping = Time.time;
+
+        if (AlternateBehavior)
+        {
+            angle = -90;
+        }
+        Debug.Log("Hoppy Spin!");
+        if (!IsSpinning)
+        {
+            fromAngle = transform.rotation;
+
+            toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * angle);
+
+            IsSpinning = true;
+        }
     }
 }
