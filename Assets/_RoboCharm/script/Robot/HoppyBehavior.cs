@@ -78,7 +78,7 @@ public class HoppyBehavior : MonoBehaviour, IRobot
 
     public void TriggerAction()
     {
-
+        GetComponent<RobotHoppy>().Activate();
         Debug.Log("Hoppy Go!");
     }
 

@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_RoboCharm/scenes/test_kam.unity
     guid: 988b13904fd71fc418d1611e99f3abe5
+  - enabled: 1
+    path: Assets/_RoboCharm/scenes/Hoppy Jump.unity
+    guid: 4736060d5dcf63d4c98a81bd22efa2a0
