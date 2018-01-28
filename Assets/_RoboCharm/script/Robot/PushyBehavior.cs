@@ -21,6 +21,9 @@ public class PushyBehavior : MonoBehaviour, IRobot
     Quaternion fromAngle;
     Quaternion toAngle;
 
+    [SerializeField] private AudioSource pushySound;
+    [SerializeField] private AudioSource pushyRotate;
+
     public Vector3 StartPosition
     {
         get
@@ -95,6 +98,7 @@ public class PushyBehavior : MonoBehaviour, IRobot
 
             if (percentageComplete >= 1.0f)
             {
+                pushySound.Stop();
                 IsActive = false;
                 var bots = GameObject.FindGameObjectsWithTag("Bot");
 
@@ -136,6 +140,7 @@ public class PushyBehavior : MonoBehaviour, IRobot
             if (spinpercentageComplete >= 1.0f)
             {
                 IsSpinning = false;
+                pushyRotate.Stop();
             }
         }
     }
@@ -152,6 +157,7 @@ public class PushyBehavior : MonoBehaviour, IRobot
         _timeStartedLerping = Time.time;
         _goalposition = CalculateGoal();
         Debug.Log("Pushy Go!");
+        pushySound.Play();
     }
 
     public void Toggle()
@@ -218,6 +224,7 @@ public class PushyBehavior : MonoBehaviour, IRobot
             toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * angle);
 
             IsSpinning = true;
+            pushyRotate.Play();
         }
     }
 
