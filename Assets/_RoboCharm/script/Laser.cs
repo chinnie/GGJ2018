@@ -18,8 +18,11 @@ namespace NewtonVR
 
         public void enabledLaser(Transform BeamStart, int controllerIndex)
         {
-            this.updateLaserLocation(BeamStart, controllerIndex);
-            laserLineRenderer.enabled = true;
+            if (!this.isNaN(BeamStart.position) && !this.isNaN(BeamStart.rotation))
+            {
+                this.updateLaserLocation(BeamStart, controllerIndex);
+                laserLineRenderer.enabled = true;
+            }
         }
 
         public void disabledLaser(int controllerIndex)
@@ -58,6 +61,16 @@ namespace NewtonVR
 
             laserLineRenderer.SetPosition(0, targetPosition);
             laserLineRenderer.SetPosition(1, endPosition);
+        }
+
+        private bool isNaN(Quaternion q)
+        {
+            return float.IsNaN(q.x) || float.IsNaN(q.y) || float.IsNaN(q.z) || float.IsNaN(q.w);
+        }
+
+        private bool isNaN(Vector3 v)
+        {
+            return float.IsNaN(v.x) || float.IsNaN(v.y) || float.IsNaN(v.z);
         }
     }
 }
