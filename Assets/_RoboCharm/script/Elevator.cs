@@ -101,6 +101,18 @@ namespace _RoboCharm.scripts {
             GameObject[] rootObjects = scene.GetRootGameObjects();
             foreach (GameObject rootObject in rootObjects) {
                 rootObject.transform.position += scenePosition;
+
+                Light[] lights = rootObject.GetComponentsInChildren<Light>();
+                foreach (Light light in lights) {
+                    if (light.type == LightType.Directional) {
+                        light.enabled = false;  
+                    }
+                }
+
+                NVRPlayer player = rootObject.GetComponentInChildren<NVRPlayer>();
+                if (player != null) {
+                    GameObject.Destroy(player.gameObject);
+                }
             }
 
             if (nextSceneIndex < sceneNames.Length) {
