@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bot
   - explodable
+  - CanDestroy
   layers:
   - Default
   - TransparentFX
