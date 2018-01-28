@@ -29,6 +29,8 @@ namespace _RoboCharm.scripts {
         private uint nextSceneIndex = 0;
         private GameObject playerHead;
         private Vector3? endPosition;
+        private uint currentSceneIndex;
+        private bool reloadingScene;
 
         // Properties
         public uint SceneLoadedCount {
@@ -45,14 +47,16 @@ namespace _RoboCharm.scripts {
 
         // Use this for initialization
         private void Start () {
-            //register callback function for asynchronos scene loading
+            //register callback functions for asynchronos scene loading
             SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
 
             playerHead = GetComponentInChildren<NVRHead>().gameObject;
 
             for (int i = 0; i <= sceneLoadRange; ++i) {
                 LoadNextScene(false);
             }
+            currentSceneIndex = 0;
         }
 
         // Update is called once per frame
@@ -91,10 +95,26 @@ namespace _RoboCharm.scripts {
             return true;
         }
 
+        private void OnSceneUnloaded (Scene scene)
+        {
+            if (reloadingScene)
+            {
+                string sceneName = scene.name;
+                Debug.Log("Unloaded " + sceneName);
+                SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+            }
+        }
+
         private void OnSceneLoaded (Scene scene,
             LoadSceneMode mode) {
+
+            Debug.Log("Loaded " + scene.name);
             Vector3 scenePosition = new Vector3();
-            if (scenePositions.Count > 0) {
+            if (reloadingScene)
+            {
+                Debug.Log("Reloaded " + scene.name);
+                scenePosition = GetCurrentScenePosition();
+            } else if (scenePositions.Count > 0) {
                 scenePosition = scenePositions.Last.Value + new Vector3(0, sceneSpacing, 0);
             }
 
@@ -113,6 +133,20 @@ namespace _RoboCharm.scripts {
                 if (player != null) {
                     GameObject.Destroy(player.gameObject);
                 }
+            }
+
+            //when restarting a scene, we don't want to recreate the barrier or add anything back into the lists
+            if (reloadingScene)
+            {
+                LinkedListNode<Scene> sceneNode = scenes.First;
+                for (int i = 0; i < currentSceneIndex; ++i)
+                {
+                    sceneNode = sceneNode.Next;
+                }
+
+                Debug.Log("Replacing " + sceneNode.Value + " in list");
+                sceneNode.Value = scene;
+                return;
             }
 
             if (nextSceneIndex < sceneNames.Length) {
@@ -139,6 +173,7 @@ namespace _RoboCharm.scripts {
             scenes.RemoveFirst();
             scenePositions.RemoveFirst();
             SceneManager.UnloadSceneAsync(scene);
+            --currentSceneIndex;
         }
 
         public void DisableBarrier () {
@@ -148,6 +183,8 @@ namespace _RoboCharm.scripts {
         public void KillPlayer () {
             Debug.Log("Kill Player");
             transform.position += new Vector3(0, -sceneSpacing, 0);
+
+            ResetCurrentScene();
         }
 
         public void PassBarrier () {
@@ -155,6 +192,37 @@ namespace _RoboCharm.scripts {
             GameObject.Destroy(barrier.gameObject);
             barriers.RemoveFirst();
             LoadNextScene();
+            ++currentSceneIndex;
+        }
+
+        public Scene GetCurrentScene () {
+            LinkedListNode<Scene> sceneNode = scenes.First;
+            Debug.Log("Getting Scene " + currentSceneIndex);
+            for (int i = 0; i < currentSceneIndex; ++i)
+            {
+                sceneNode = sceneNode.Next;
+            }
+            return sceneNode.Value;
+        }
+
+        public Vector3 GetCurrentScenePosition ()
+        {
+            LinkedListNode<Vector3> positionNode = scenePositions.First;
+            for (int i = 0; i < currentSceneIndex; ++i)
+            {
+                positionNode = positionNode.Next;
+            }
+            return positionNode.Value;
+        }
+
+        private void ResetCurrentScene() {
+            Scene currentScene = GetCurrentScene();
+            Debug.Log("Current Scene is " + currentScene.name);
+            reloadingScene = true;
+
+            SceneManager.UnloadSceneAsync(currentScene);
+            
+
         }
     }
 }
