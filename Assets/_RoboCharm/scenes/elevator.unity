@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0.2, z: 0}
   sceneNames:
-  - pushyTest
+  - Push Me
   - Push and Boom
   - Hoppy Jump
   - Around the Corner
