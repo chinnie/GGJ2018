@@ -174,12 +174,14 @@ public class PushyBehavior : MonoBehaviour, IRobot
         float distance2 = 0.0f;
 
 
-        if (Physics.Raycast(transform.position, fwd, out hit, 10))
+        if (Physics.Raycast(GetComponent<Collider>().bounds.center, fwd, out hit, 10))
         {
 
 
             distance = Vector3.Distance(hit.transform.position, this.StartPosition);
             distance = Mathf.Clamp(Mathf.FloorToInt(distance - 0.99f), 0.0f, 10.0f);
+
+            Debug.Log(hit.transform.gameObject);
 
             // Do we push something?
             // Calculate new goal based off pushability of target.
