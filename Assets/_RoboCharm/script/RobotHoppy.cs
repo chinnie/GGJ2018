@@ -84,8 +84,9 @@ public class RobotHoppy : MonoBehaviour
     public void Activate()
     {
         //Push will move forward in a straigt line 
-        isActive = !isActive;
-        if (isActive) {
+        bool wasActive = isActive;
+        isActive = true;
+        if (!wasActive) {
             CalculateJump();
         }
     }
@@ -137,6 +138,7 @@ public class RobotHoppy : MonoBehaviour
         Collider collider = GetComponent<Collider>();
         if (Physics.Raycast(point, -up, out hitInfo)) {
             targetRigidbody = hitInfo.rigidbody;
+            Debug.Log("target=" + targetRigidbody);
             Vector3 colliderOffset = collider.bounds.center - transform.position;
             return hitInfo.point + hitInfo.normal * (collider.bounds.extents.y - colliderOffset.y);
         }
@@ -145,21 +147,30 @@ public class RobotHoppy : MonoBehaviour
 
     private void OnCollisionEnter (Collision other) {
 
-        Debug.Log("Collision");
+        Debug.Log("Distance to target = " + (transform.position - endPosition).sqrMagnitude);
         //don't fall if at target
-        if ((transform.position - endPosition).sqrMagnitude < float.Epsilon * float.Epsilon)
+        if ((transform.position - endPosition).sqrMagnitude < 0.001f)
         {
             Debug.Log("Collided with target");
             return;
         }
 
         Vector3 groundPoint = FindTargetBelowPoint(transform.position);
+
+        startTime = Time.time;
+
+        if (float.IsNaN(groundPoint.sqrMagnitude)) {
+            endPosition = transform.position;
+            startVelocity = Vector3.zero;
+            jumpTime = 0;
+            return;
+        }
+
         endPosition = groundPoint;
         Debug.Log(endPosition);
 
         startVelocity = Vector3.zero;
         startPosition = transform.position;
-        startTime = Time.time;
         jumpTime = Mathf.Sqrt(2 * (endPosition - startPosition).magnitude / gravity.magnitude);
         
     }
