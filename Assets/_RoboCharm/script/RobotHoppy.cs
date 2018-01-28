@@ -133,7 +133,7 @@ public class RobotHoppy : MonoBehaviour
         Collider collider = GetComponent<Collider>();
         if (Physics.Raycast(point, -up, out hitInfo)) {
             targetRigidbody = hitInfo.rigidbody;
-            Debug.Log("target=" + targetRigidbody);
+            //Debug.Log("target=" + targetRigidbody);
             Vector3 colliderOffset = collider.bounds.center - transform.position;
             return hitInfo.point + hitInfo.normal * (collider.bounds.extents.y - colliderOffset.y);
         }

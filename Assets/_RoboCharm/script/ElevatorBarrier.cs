@@ -17,8 +17,8 @@ namespace _RoboCharm.scripts {
         private void Update () {}
 
         public void OnTriggerEnter (Collider other) {
-            Debug.Log(other.gameObject);
-            Debug.Log(PlayerHead);
+            //Debug.Log(other.gameObject);
+            //Debug.Log(PlayerHead);
             if (other.gameObject != PlayerHead) {
                 return;
             }

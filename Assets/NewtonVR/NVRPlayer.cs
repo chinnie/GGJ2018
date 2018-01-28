@@ -360,7 +360,7 @@ namespace NewtonVR
         {
             if (DEBUGDropFrames == true)
             {
-                System.Threading.Thread.Sleep(DEBUGSleepPerFrame);
+                //System.Threading.Thread.Sleep(DEBUGSleepPerFrame);
             }
         }
 

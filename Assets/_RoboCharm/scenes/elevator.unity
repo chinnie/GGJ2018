@@ -287,6 +287,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114067059301075208, guid: 4d4642ff89ddafb45b481d013bc8eead,
+        type: 2}
+      propertyPath: WindowsMREnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114067059301075208, guid: 4d4642ff89ddafb45b481d013bc8eead,
+        type: 2}
+      propertyPath: SteamVREnabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d4642ff89ddafb45b481d013bc8eead, type: 2}
   m_IsPrefabParent: 0

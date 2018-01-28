@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24647538, g: 0.28234535, b: 0.3457032, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2106,41 +2106,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4175709476969214, guid: 80b2c74165250764cbe8949d5f23667b, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4175709476969214, guid: 80b2c74165250764cbe8949d5f23667b, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4175709476969214, guid: 80b2c74165250764cbe8949d5f23667b, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80b2c74165250764cbe8949d5f23667b, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &382959563 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1712369507472282, guid: 80b2c74165250764cbe8949d5f23667b,
-    type: 2}
-  m_PrefabInternal: {fileID: 382959562}
---- !u!54 &382959564
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 382959563}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &402342533
 Prefab:
   m_ObjectHideFlags: 0
@@ -3726,7 +3694,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4368690747343966, guid: f950aba8dcf134d458bc795cd20670b7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.022
       objectReference: {fileID: 0}
     - target: {fileID: 4368690747343966, guid: f950aba8dcf134d458bc795cd20670b7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3751,24 +3719,6 @@ Prefab:
     - target: {fileID: 4368690747343966, guid: f950aba8dcf134d458bc795cd20670b7, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114897227874086472, guid: f950aba8dcf134d458bc795cd20670b7,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114481127179137332, guid: f950aba8dcf134d458bc795cd20670b7,
-        type: 2}
-      propertyPath: isActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368690747343966, guid: f950aba8dcf134d458bc795cd20670b7, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368690747343966, guid: f950aba8dcf134d458bc795cd20670b7, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f950aba8dcf134d458bc795cd20670b7, type: 2}
@@ -5693,41 +5643,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 4017104787613064, guid: 98a56a9c4ad273f488ac79d30f609348, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4017104787613064, guid: 98a56a9c4ad273f488ac79d30f609348, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4017104787613064, guid: 98a56a9c4ad273f488ac79d30f609348, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98a56a9c4ad273f488ac79d30f609348, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1225949983 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1939145299195920, guid: 98a56a9c4ad273f488ac79d30f609348,
-    type: 2}
-  m_PrefabInternal: {fileID: 1225949982}
---- !u!54 &1225949984
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1225949983}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &1232001383
 Prefab:
   m_ObjectHideFlags: 0

@@ -144,14 +144,13 @@ public class PushyBehavior : MonoBehaviour, IRobot
     {
         if (IsActive || IsSpinning)
         {
-            Debug.Log("Busy");
+
             return;
         }
         IsActive = true;
         _startposition = transform.position;
         _timeStartedLerping = Time.time;
         _goalposition = CalculateGoal();
-        Debug.Log("Pushy Go!");
     }
 
     public void Toggle()
@@ -171,7 +170,6 @@ public class PushyBehavior : MonoBehaviour, IRobot
 
         if (Physics.Raycast(transform.position, fwd, out hit, 10))
         {
-            Debug.Log(hit.collider.gameObject.transform.position);
 
             distance = Vector3.Distance(hit.transform.position, this.StartPosition);
             distance = Mathf.Clamp(Mathf.FloorToInt(distance) - 1, 0.0f, 10.0f);

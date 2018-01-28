@@ -50,7 +50,7 @@ namespace _RoboCharm.scripts {
         private void Start () {
             //register callback functions for asynchronos scene loading
             SceneManager.sceneLoaded += OnSceneLoaded;
-            SceneManager.sceneUnloaded += OnSceneUnloaded;
+            //SceneManager.sceneUnloaded += OnSceneUnloaded;
 
             startPoition = transform.position;
             playerHead = GetComponentInChildren<NVRHead>().gameObject;
@@ -151,7 +151,7 @@ namespace _RoboCharm.scripts {
                     sceneNode = sceneNode.Next;
                 }
 
-                Debug.Log("Replacing " + sceneNode.Value + " in list");
+                Debug.Log("Replacing " + sceneNode.Value.name + " in list");
                 sceneNode.Value = scene;
                 return;
             }
@@ -191,7 +191,9 @@ namespace _RoboCharm.scripts {
             Debug.Log("Kill Player");
             transform.position += new Vector3(0, -sceneSpacing, 0);
 
-            ResetCurrentScene();
+            //SceneManager.sceneLoaded -= OnSceneLoaded;
+            //SceneManager.LoadScene("elevator");
+            //ResetCurrentScene();
         }
 
         public void PassBarrier () {
