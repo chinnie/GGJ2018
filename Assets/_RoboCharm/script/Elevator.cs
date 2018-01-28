@@ -152,7 +152,7 @@ namespace _RoboCharm.scripts {
 
         public void PassBarrier () {
             ElevatorBarrier barrier = barriers.First.Value;
-            GameObject.Destroy(barrier);
+            GameObject.Destroy(barrier.gameObject);
             barriers.RemoveFirst();
             LoadNextScene();
         }
