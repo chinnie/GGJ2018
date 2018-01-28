@@ -179,20 +179,28 @@ public class PushyBehavior : MonoBehaviour, IRobot
         {
             Debug.Log(hit.collider.gameObject.transform.position);
 
+
             distance = Vector3.Distance(hit.transform.position, this.StartPosition);
-            distance = Mathf.Clamp(Mathf.FloorToInt(distance) - 1, 0.0f, 10.0f);
+            distance = Mathf.Clamp(Mathf.FloorToInt(distance - 0.99f), 0.0f, 10.0f);
 
             // Do we push something?
             // Calculate new goal based off pushability of target.
+            if (hit.collider.gameObject.tag == "Button")
+            {
+                distance += 1.0f;
+                Debug.Log("Button in sight!");
+                //dirty button hack.
+            }
 
             if (Physics.Raycast(hit.transform.position, fwd, out hit2, 10))
             {
-                if (hit.collider.gameObject.tag == "Bot" || hit.collider.gameObject.tag == "Pushable")
+
+                    if (hit.collider.gameObject.tag == "Bot" || hit.collider.gameObject.tag == "Pushable")
                 {
                     Debug.Log(hit.collider.gameObject.transform.position);
 
                     distance2 = Vector3.Distance(hit2.transform.position, hit.transform.position);
-                    distance2 = Mathf.Clamp(Mathf.FloorToInt(distance2) - 1, 0.0f, 10.0f);
+                    distance2 = Mathf.Clamp(Mathf.FloorToInt(distance2 - 0.99f), 0.0f, 10.0f);
                 }
             }
         }

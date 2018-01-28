@@ -9,6 +9,7 @@ TagManager:
   - CanDestroy
   - Elevator
   - Pushable
+  - Button
   layers:
   - Default
   - TransparentFX
