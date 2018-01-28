@@ -109,7 +109,6 @@ public class RobotHoppy : MonoBehaviour
             Vector3 castStart = transform.position + jumpDirection * jumpDistance;
             Debug.Log("target in plane: " + castStart);
             castStart += up * maxHeightIncrease;
-            RaycastHit hitInfo;
             Vector3 targetPoint = FindTargetBelowPoint(castStart);
             Debug.Log("targetPoint=" + targetPoint);
             if (float.IsNaN(targetPoint.sqrMagnitude))

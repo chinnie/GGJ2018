@@ -37,6 +37,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4314873272849342}
   - component: {fileID: 95966895946026124}
+  - component: {fileID: 114868231227359118}
+  - component: {fileID: 65260040951651152}
   m_Layer: 0
   m_Name: rcSwitchAssy
   m_TagString: Untagged
@@ -68,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443850846451966}
   m_LocalRotation: {x: 1.110223e-16, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.5140297, y: 0.05000006, z: 2.584875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4876032833759230}
@@ -184,6 +186,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1176460025288152}
   m_Mesh: {fileID: 4300000, guid: c63fd1c71d8ae2b40a79d1f404296850, type: 3}
+--- !u!65 &65260040951651152
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443850846451966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.51876426, y: 0.08698863, z: 1}
+  m_Center: {x: -0.0016618967, y: 0.0371968, z: 0}
 --- !u!95 &95966895946026124
 Animator:
   serializedVersion: 3
@@ -201,3 +215,14 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114868231227359118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443850846451966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfce5aae528e5e74487e707d8418a51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
