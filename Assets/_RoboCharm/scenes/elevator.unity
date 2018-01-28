@@ -217,10 +217,10 @@ MonoBehaviour:
   velocity: {x: 0, y: 0.2, z: 0}
   sceneNames:
   - pushyTest
-  - test_tania
+  - Push and Boom
+  - Hoppy Jump
+  - Take a Ride
   - test_kam
-  - test_tania
-  - test_tania
   - test_tania
   sceneLoadRange: 2
   sceneSpacing: 6
