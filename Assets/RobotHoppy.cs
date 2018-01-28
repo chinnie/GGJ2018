@@ -129,8 +129,11 @@ public class RobotHoppy : MonoBehaviour
 
     private void OnCollisionEnter (Collision other) {
 
+        Debug.Log("Collision");
         //don't fall if at target
-        if ((transform.position - endPosition).sqrMagnitude < float.Epsilon * float.Epsilon) {
+        if ((transform.position - endPosition).sqrMagnitude < float.Epsilon * float.Epsilon)
+        {
+            Debug.Log("Collided with target");
             return;
         }
 
@@ -142,5 +145,6 @@ public class RobotHoppy : MonoBehaviour
         startPosition = transform.position;
         startTime = Time.time;
         jumpTime = Mathf.Sqrt(2 * (endPosition - startPosition).magnitude / gravity.magnitude);
+        
     }
 }
