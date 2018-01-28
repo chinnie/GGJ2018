@@ -29,6 +29,7 @@ namespace _RoboCharm.scripts {
         private uint nextSceneIndex = 0;
         private GameObject playerHead;
         private Vector3? endPosition;
+        private Vector3 startPoition;
 
         // Properties
         public uint SceneLoadedCount {
@@ -48,6 +49,7 @@ namespace _RoboCharm.scripts {
             //register callback function for asynchronos scene loading
             SceneManager.sceneLoaded += OnSceneLoaded;
 
+            startPoition = transform.position;
             playerHead = GetComponentInChildren<NVRHead>().gameObject;
 
             for (int i = 0; i <= sceneLoadRange; ++i) {
@@ -93,7 +95,7 @@ namespace _RoboCharm.scripts {
 
         private void OnSceneLoaded (Scene scene,
             LoadSceneMode mode) {
-            Vector3 scenePosition = new Vector3();
+            Vector3 scenePosition = Vector3.zero + startPoition;
             if (scenePositions.Count > 0) {
                 scenePosition = scenePositions.Last.Value + new Vector3(0, sceneSpacing, 0);
             }
@@ -112,6 +114,11 @@ namespace _RoboCharm.scripts {
                 NVRPlayer player = rootObject.GetComponentInChildren<NVRPlayer>();
                 if (player != null) {
                     GameObject.Destroy(player.gameObject);
+                }
+
+                RobotHoppy[] hoppies = rootObject.GetComponentsInChildren<RobotHoppy>();
+                foreach (RobotHoppy hoppy in hoppies) {
+                    hoppy.IgnoreCollision = false;
                 }
             }
 
