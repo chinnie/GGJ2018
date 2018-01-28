@@ -154,10 +154,13 @@ public class PushyBehavior : MonoBehaviour, IRobot
 
             if (Physics.Raycast(hit.transform.position, fwd, out hit2, 10))
             {
-                Debug.Log(hit.collider.gameObject.transform.position);
+                if (hit.collider.gameObject.tag == "Bot")
+                {
+                    Debug.Log(hit.collider.gameObject.transform.position);
 
-                distance2 = Vector3.Distance(hit2.transform.position, hit.transform.position);
-                distance2 = Mathf.FloorToInt(distance2) - 1;
+                    distance2 = Vector3.Distance(hit2.transform.position, hit.transform.position);
+                    distance2 = Mathf.FloorToInt(distance2) - 1;
+                }
             }
         }
         else
