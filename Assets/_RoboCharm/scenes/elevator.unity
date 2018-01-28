@@ -222,6 +222,9 @@ MonoBehaviour:
   - Hoppy Jump
   - Around the Corner
   - Take a Ride
+  - test_kam
+  - test_tania
+  - End
   sceneLoadRange: 2
   sceneSpacing: 6
   barrierPrefab: {fileID: 1828405903542120, guid: 097fb1ecf2245224d9c79aec41b48c8b,

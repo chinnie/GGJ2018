@@ -32,3 +32,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_RoboCharm/scenes/Sandbox/test_kam.unity
     guid: 988b13904fd71fc418d1611e99f3abe5
+  - enabled: 1
+    path: Assets/_RoboCharm/scenes/End.unity
+    guid: f303ed579cdfc3242bb8e785aa27eb62
