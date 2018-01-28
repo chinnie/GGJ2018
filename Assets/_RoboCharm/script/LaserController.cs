@@ -4,11 +4,9 @@ namespace NewtonVR
 {
     public class LaserController : MonoBehaviour
     {
-        public Transform BeamStart;
-        public NVRButtons LaserButton = NVRButtons.Grip;
 
+        public Transform BeamStart;
         private Laser laser;
-        //NVRHand sometimes gets destroyed. Pull it each time.
         private NVRHand nvrHand
         {
             get
@@ -23,9 +21,7 @@ namespace NewtonVR
         }
 
         private int controllerIndex = 0;
-        public bool held = false;
-
-        private Vector3? validTeleportPosition;
+        private bool held = false;
 
         private void Start()
         {
@@ -45,17 +41,17 @@ namespace NewtonVR
         {
             if (laser != null)
             {            
-                if (nvrHand.Inputs[LaserButton].IsPressed)
+                if (nvrHand.Inputs[laser.LaserButton].IsPressed)
                 {
-                    Debug.LogError("Laser is pressed");
-                    laser.enabledLaser();
+                    //Debug.LogError("Laser Controller " + controllerIndex.ToString() + "is pressed");
+                    laser.enabledLaser(BeamStart, controllerIndex);
                     held = true;
                 }
                 else if (held)
                 {
-                    Debug.LogError("Laser is release");
+                    //Debug.LogError("Laser Controller is release" + controllerIndex.ToString());
 
-                    laser.disabledLaser();
+                    laser.disabledLaser(controllerIndex);
                     held = false;
                 }
             }
