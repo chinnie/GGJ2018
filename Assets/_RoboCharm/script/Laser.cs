@@ -3,32 +3,38 @@ using System.Collections;
 
 public class Laser : MonoBehaviour
 {
-    public bool enabledLaser = false;
+    public bool enabled = false;
     public LineRenderer laserLineRenderer;
-    public float laserWidth = 0.1f;
+    public float laserWidth = 0.01f;
     public float laserMaxLength = 5f;
+    public Vector3 targetPosition;
+    public Vector3 direction;
 
     void Start()
     {
-        Vector3[] initLaserPositions = new Vector3[2] { Vector3.zero, Vector3.zero };
-        laserLineRenderer.SetPositions(initLaserPositions);
-        laserLineRenderer.SetWidth(laserWidth, laserWidth);
+        this.updateLaserLocation();
+    }
 
-        ShootLaserFromTargetPosition(transform.position, Vector3.forward, laserMaxLength);
+    public void enabledLaser()
+    {
+        this.updateLaserLocation();
         laserLineRenderer.enabled = true;
     }
 
-    void Update()
+    public void disabledLaser()
     {
-        if (enabledLaser)
-        {
-            ShootLaserFromTargetPosition(transform.position, Vector3.forward, laserMaxLength);
-            laserLineRenderer.enabled = true;
-        }
-        else
-        {
-            laserLineRenderer.enabled = false;
-        }
+        laserLineRenderer.enabled = false;
+    }
+
+    void updateLaserLocation()
+    {
+        Transform initLaserTransform = this.GetComponentInParent<Transform>();
+        this.targetPosition = initLaserTransform.position;
+        this.direction = initLaserTransform.rotation * Vector3.forward;
+
+        laserLineRenderer.startWidth = laserLineRenderer.endWidth = this.laserWidth;
+
+        ShootLaserFromTargetPosition(this.targetPosition, this.direction, this.laserMaxLength);
     }
 
     void ShootLaserFromTargetPosition(Vector3 targetPosition, Vector3 direction, float length)
