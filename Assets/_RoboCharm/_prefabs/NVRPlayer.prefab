@@ -160,7 +160,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4128210465257822}
   - component: {fileID: 114583707474158816}
-  - component: {fileID: 114293290259459886}
   - component: {fileID: 114408360507193360}
   m_Layer: 0
   m_Name: RightHand
@@ -178,7 +177,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4025161693076416}
   - component: {fileID: 114025640219851988}
-  - component: {fileID: 114149655041920220}
   - component: {fileID: 114306081573406268}
   m_Layer: 0
   m_Name: LeftHand
@@ -202,7 +200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4025161693076416
 Transform:
   m_ObjectHideFlags: 1
@@ -587,30 +585,6 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   direction: {x: 0, y: 0, z: 0}
   LaserButton: 17
---- !u!114 &114149655041920220
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1761178340942696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b877423336a7a74f862e2c482f243c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeamStart: {fileID: 0}
---- !u!114 &114293290259459886
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1695972342882254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b877423336a7a74f862e2c482f243c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeamStart: {fileID: 0}
 --- !u!114 &114294284389377030
 MonoBehaviour:
   m_ObjectHideFlags: 1

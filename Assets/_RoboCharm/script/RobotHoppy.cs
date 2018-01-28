@@ -64,7 +64,7 @@ public class RobotHoppy : MonoBehaviour
             Rigidbody rigidbody = GetComponent<Rigidbody>();
             if (joint != null) {
                 joint.connectedBody = targetRigidbody;
-                //rigidbody.isKinematic = false;
+                rigidbody.isKinematic = false;
 
             }
         }

@@ -51,7 +51,7 @@ namespace NewtonVR
                 }
                 else
                 {
-                    Debug.Log("You are hitting : " + raycastHit.collider);
+                    //Debug.Log("You are hitting : " + raycastHit.collider);
                 }
                 endPosition = raycastHit.point;
             }
