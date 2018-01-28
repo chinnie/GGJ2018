@@ -8,4 +8,5 @@ public interface IRobot
     bool IsInteracting { get; set; }
     void TriggerAction();
     void Toggle();
+    void Spin(bool AlternateBehavior);
 }

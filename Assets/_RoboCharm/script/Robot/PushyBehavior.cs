@@ -147,4 +147,9 @@ public class PushyBehavior : MonoBehaviour, IRobot
         timeTakenDuringLerp = (distance+distance2)/speed;
         return this.transform.position + transform.forward * (distance+distance2);
     }
+
+    public void Spin(bool AlternateBehavior)
+    {
+       
+    }
 }

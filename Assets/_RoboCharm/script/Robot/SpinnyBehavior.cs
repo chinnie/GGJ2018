@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HackyBehavior : MonoBehaviour, IRobot
+public class SpinnyBehavior : MonoBehaviour, IRobot
 {
     [SerializeField] Vector3 _startposition;
     [SerializeField] Vector3 _endposition;
@@ -59,7 +59,7 @@ public class HackyBehavior : MonoBehaviour, IRobot
 
     public void TriggerAction()
     {
-        Debug.Log("Hacky Go!");
+        Debug.Log("Spinny Go!");
         // Get list of bots in scene
 
         var bots = GameObject.FindGameObjectsWithTag("Bot");
@@ -69,7 +69,7 @@ public class HackyBehavior : MonoBehaviour, IRobot
         {
             if (bot.GetComponent<IRobot>() != null)
             {
-                bot.GetComponent<IRobot>().Toggle();
+                bot.GetComponent<IRobot>().Spin(_UseAltBehavior);
             }
             else
             {
@@ -81,7 +81,8 @@ public class HackyBehavior : MonoBehaviour, IRobot
     public void Toggle()
     {
         // Hacky has no toggle state!
-        //_UseAltBehavior = !_UseAltBehavior;
+        Debug.Log("Spinny Toggle");
+        _UseAltBehavior = !_UseAltBehavior;
     }
 
     public void Spin(bool AlternateBehavior)

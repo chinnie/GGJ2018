@@ -80,4 +80,9 @@ public class BoomyBehavior : MonoBehaviour, IRobot
         Debug.Log("Boomy Toggle!");
         _UseAltBehavior = !_UseAltBehavior;
     }
+
+    public void Spin(bool AlternateBehavior)
+    {
+        
+    }
 }

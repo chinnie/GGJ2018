@@ -68,4 +68,9 @@ public class HoppyBehavior : MonoBehaviour, IRobot
         Debug.Log("Hoppy Toggle!");
         _UseAltBehavior = !_UseAltBehavior;
     }
+
+    public void Spin(bool AlternateBehavior)
+    {
+     
+    }
 }
