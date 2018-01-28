@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/_RoboCharm/scenes/elevator.unity
     guid: b3199047d898bcc4294d75335eac9abd
   - enabled: 1
-    path: Assets/_RoboCharm/scenes/pushyTest.unity
-    guid: 2e2b5e31b5395f94ea3feb44185a6a14
+    path: Assets/_RoboCharm/scenes/Push Me.unity
+    guid: 9834f66ae6636bf4ca148f32c9c5de59
   - enabled: 1
     path: Assets/_RoboCharm/scenes/Push and Boom.unity
     guid: 13e11bb4a8642a549aac1e339cde5128
@@ -18,11 +18,14 @@ EditorBuildSettings:
     path: Assets/_RoboCharm/scenes/Hoppy Jump.unity
     guid: 4736060d5dcf63d4c98a81bd22efa2a0
   - enabled: 1
-    path: Assets/_RoboCharm/scenes/test_tania.unity
-    guid: 58f858ae2900f2d42a1d9f6ae37fd222
-  - enabled: 1
-    path: Assets/_RoboCharm/scenes/test_kam.unity
-    guid: 988b13904fd71fc418d1611e99f3abe5
+    path: Assets/_RoboCharm/scenes/Around the Corner.unity
+    guid: 4605ab2d9b3f99d4c823ef5fd5d381cb
   - enabled: 1
     path: Assets/_RoboCharm/scenes/Take a Ride.unity
     guid: 22b3d9c12ce7c3644a13e0d78f4b5e1e
+  - enabled: 1
+    path: Assets/_RoboCharm/scenes/Sandbox/test_tania.unity
+    guid: 58f858ae2900f2d42a1d9f6ae37fd222
+  - enabled: 1
+    path: Assets/_RoboCharm/scenes/Sandbox/test_kam.unity
+    guid: 988b13904fd71fc418d1611e99f3abe5
