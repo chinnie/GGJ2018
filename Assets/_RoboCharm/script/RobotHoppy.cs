@@ -16,9 +16,8 @@ public class RobotHoppy : MonoBehaviour
     private float jumpDistance = 2;
     [SerializeField]
     private float maxHeightIncrease = 2;
-    [SerializeField]
-    private Vector3 jumpDirection = new Vector3(1, 0, 0);
 
+    public bool IgnoreCollision = true;
     private readonly Vector3 gravity = new Vector3(0, -9.81f, 0);
     private Vector3 endPosition;
     private Vector3 startPosition;
@@ -28,30 +27,25 @@ public class RobotHoppy : MonoBehaviour
     private float jumpTime;
     private Joint joint;
     private Rigidbody targetRigidbody;
-    private bool wasActive;
 
     // Use this for initialization
     void Start()
     {
-        startPosition = transform.position;
         up = -gravity.normalized;
-        jumpDirection.Normalize();
-
-        if (isActive) {
-            CalculateJump();
-        }
-
         joint = GetComponent<Joint>();
-        wasActive = isActive;
+
+        FindTargetBelowPoint(transform.position);
+        if (joint != null && targetRigidbody != null) {
+            joint.connectedBody = targetRigidbody;
+            GetComponent<Rigidbody>().isKinematic = false;
+        }
+        else {
+            GetComponent<Rigidbody>().isKinematic = true;
+        }
     }
 
     // Update is called once per frame
     void Update() {
-        if (isActive && !wasActive) {
-            CalculateJump();
-        }
-
-        wasActive = isActive;
 
         if (!isActive) {
             return;
@@ -62,7 +56,7 @@ public class RobotHoppy : MonoBehaviour
             transform.position = endPosition;
             isActive = false;
             Rigidbody rigidbody = GetComponent<Rigidbody>();
-            if (joint != null) {
+            if (joint != null && targetRigidbody != null) {
                 joint.connectedBody = targetRigidbody;
                 rigidbody.isKinematic = false;
 
@@ -93,6 +87,7 @@ public class RobotHoppy : MonoBehaviour
 
     private void CalculateJump()
     {
+        Debug.Log("Calculate Jump");
         startPosition = transform.position;
         startTime = Time.time;
 
@@ -147,6 +142,11 @@ public class RobotHoppy : MonoBehaviour
 
     private void OnCollisionEnter (Collision other) {
 
+        if (IgnoreCollision) {
+            return;
+        }
+
+        Debug.Log(other.gameObject);
         Debug.Log("Distance to target = " + (transform.position - endPosition).sqrMagnitude);
         //don't fall if at target
         if ((transform.position - endPosition).sqrMagnitude < 0.001f)

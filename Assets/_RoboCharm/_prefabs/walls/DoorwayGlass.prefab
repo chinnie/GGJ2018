@@ -54,9 +54,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4916092203752914}
   - component: {fileID: 95433609585338850}
+  - component: {fileID: 65555404022810896}
   m_Layer: 0
   m_Name: DoorwayGlass
-  m_TagString: Untagged
+  m_TagString: CanDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,8 +111,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1812667479557546}
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 5}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4493265512630906}
@@ -119,7 +120,7 @@ Transform:
   - {fileID: 4797328792870438}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4952255253689540
 Transform:
   m_ObjectHideFlags: 1
@@ -256,6 +257,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1057245904800310}
   m_Mesh: {fileID: 4300004, guid: de65e6c9dab08f840acd81852d5bd2fd, type: 3}
+--- !u!65 &65555404022810896
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1812667479557546}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95433609585338850
 Animator:
   serializedVersion: 3

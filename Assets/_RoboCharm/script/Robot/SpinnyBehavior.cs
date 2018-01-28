@@ -8,6 +8,10 @@ public class SpinnyBehavior : MonoBehaviour, IRobot
     [SerializeField] Vector3 _endposition;
     [SerializeField] bool _UseAltBehavior = false;
 
+    private bool IsSpinning = false;
+    private float _spintimeStartedLerping;
+    private float spintimeTakenDuringLerp = 1.0f;
+
     public Vector3 StartPosition
     {
         get
@@ -55,26 +59,45 @@ public class SpinnyBehavior : MonoBehaviour, IRobot
     // Update is called once per frame
     void Update()
     {
+        if (IsSpinning)
+        {
+            float spintimeSinceStarted = Time.time - _spintimeStartedLerping;
+            float spinpercentageComplete = spintimeSinceStarted / spintimeTakenDuringLerp;
+            
+            if (spinpercentageComplete >= 1.0f)
+            {
+                IsSpinning = false;
+            }
+        }
     }
 
     public void TriggerAction()
     {
-        Debug.Log("Spinny Go!");
-        // Get list of bots in scene
-
-        var bots = GameObject.FindGameObjectsWithTag("Bot");
-
-        // Call toggle on all bots but this one
-        foreach (var bot in bots)
+        if (!IsSpinning)
         {
-            if (bot.GetComponent<IRobot>() != null)
+            IsSpinning = true;
+            _spintimeStartedLerping = Time.time;
+            Debug.Log("Spinny Go!");
+            // Get list of bots in scene
+
+            var bots = GameObject.FindGameObjectsWithTag("Bot");
+
+            // Call toggle on all bots but this one
+            foreach (var bot in bots)
             {
-                bot.GetComponent<IRobot>().Spin(_UseAltBehavior);
+                if (bot.GetComponent<IRobot>() != null)
+                {
+                    bot.GetComponent<IRobot>().Spin(_UseAltBehavior);
+                }
+                else
+                {
+                    Debug.Log("Bots need tag AND IRobot!");
+                }
             }
-            else
-            {
-                Debug.Log("Bots need tag AND IRobot!");
-            }
+        }
+        else
+        {
+            Debug.Log("Already Spinning.");
         }
     }
 
@@ -87,6 +110,13 @@ public class SpinnyBehavior : MonoBehaviour, IRobot
 
     public void Spin(bool AlternateBehavior)
     {
+        // Spinny does not spin!
+    }
 
+    public void ReSnapToGrid()
+    {
+        transform.position = new Vector3(Mathf.RoundToInt(transform.position.x),
+            Mathf.RoundToInt(transform.position.y),
+            Mathf.RoundToInt(transform.position.z));
     }
 }

@@ -1,0 +1,170 @@
+fileFormatVersion: 2
+guid: e475f9bc6e4db65499eeee84acffb86e
+timeCreated: 1517148438
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: rcDecalE
+    100002: rcDecalGGJlogo
+    100004: rcDecalN
+    100006: rcDecalNum0
+    100008: rcDecalNum1
+    100010: rcDecalNum2
+    100012: rcDecalNum3
+    100014: rcDecalNum4
+    100016: rcDecalNum5
+    100018: rcDecalNum6
+    100020: rcDecalNum7
+    100022: rcDecalNum8
+    100024: rcDecalNum9
+    100026: rcDecalS
+    100028: rcDecals
+    100030: //RootNode
+    100032: rcDecalW
+    400000: rcDecalE
+    400002: rcDecalGGJlogo
+    400004: rcDecalN
+    400006: rcDecalNum0
+    400008: rcDecalNum1
+    400010: rcDecalNum2
+    400012: rcDecalNum3
+    400014: rcDecalNum4
+    400016: rcDecalNum5
+    400018: rcDecalNum6
+    400020: rcDecalNum7
+    400022: rcDecalNum8
+    400024: rcDecalNum9
+    400026: rcDecalS
+    400028: rcDecals
+    400030: //RootNode
+    400032: rcDecalW
+    2300000: rcDecalE
+    2300002: rcDecalGGJlogo
+    2300004: rcDecalN
+    2300006: rcDecalNum0
+    2300008: rcDecalNum1
+    2300010: rcDecalNum2
+    2300012: rcDecalNum3
+    2300014: rcDecalNum4
+    2300016: rcDecalNum5
+    2300018: rcDecalNum6
+    2300020: rcDecalNum7
+    2300022: rcDecalNum8
+    2300024: rcDecalNum9
+    2300026: rcDecalS
+    2300028: rcDecalW
+    3300000: rcDecalE
+    3300002: rcDecalGGJlogo
+    3300004: rcDecalN
+    3300006: rcDecalNum0
+    3300008: rcDecalNum1
+    3300010: rcDecalNum2
+    3300012: rcDecalNum3
+    3300014: rcDecalNum4
+    3300016: rcDecalNum5
+    3300018: rcDecalNum6
+    3300020: rcDecalNum7
+    3300022: rcDecalNum8
+    3300024: rcDecalNum9
+    3300026: rcDecalS
+    3300028: rcDecalW
+    4300000: rcDecalGGJlogo
+    4300002: rcDecalNum0
+    4300004: rcDecalNum1
+    4300006: rcDecalNum2
+    4300008: rcDecalNum3
+    4300010: rcDecalNum4
+    4300012: rcDecalNum5
+    4300014: rcDecalNum6
+    4300016: rcDecalNum7
+    4300018: rcDecalNum8
+    4300020: rcDecalNum9
+    4300022: rcDecalN
+    4300024: rcDecalS
+    4300026: rcDecalE
+    4300028: rcDecalW
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 01 - Default
+    second: {fileID: 2100000, guid: aa8cc810e0a4d644aa0c366fb6527a14, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
