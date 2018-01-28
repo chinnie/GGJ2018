@@ -21,6 +21,9 @@ public class PushyBehavior : MonoBehaviour, IRobot
     Quaternion fromAngle;
     Quaternion toAngle;
 
+    [SerializeField] private AudioSource pushySound;
+    [SerializeField] private AudioSource pushyRotate;
+
     public Vector3 StartPosition
     {
         get
@@ -95,6 +98,7 @@ public class PushyBehavior : MonoBehaviour, IRobot
 
             if (percentageComplete >= 1.0f)
             {
+                pushySound.Stop();
                 IsActive = false;
                 var bots = GameObject.FindGameObjectsWithTag("Bot");
 
@@ -136,6 +140,7 @@ public class PushyBehavior : MonoBehaviour, IRobot
             if (spinpercentageComplete >= 1.0f)
             {
                 IsSpinning = false;
+                pushyRotate.Stop();
             }
         }
     }
@@ -151,6 +156,7 @@ public class PushyBehavior : MonoBehaviour, IRobot
         _startposition = transform.position;
         _timeStartedLerping = Time.time;
         _goalposition = CalculateGoal();
+        pushySound.Play();
     }
 
     public void Toggle()
@@ -171,20 +177,28 @@ public class PushyBehavior : MonoBehaviour, IRobot
         if (Physics.Raycast(transform.position, fwd, out hit, 10))
         {
 
+
             distance = Vector3.Distance(hit.transform.position, this.StartPosition);
-            distance = Mathf.Clamp(Mathf.FloorToInt(distance) - 1, 0.0f, 10.0f);
+            distance = Mathf.Clamp(Mathf.FloorToInt(distance - 0.99f), 0.0f, 10.0f);
 
             // Do we push something?
             // Calculate new goal based off pushability of target.
+            if (hit.collider.gameObject.tag == "Button")
+            {
+                distance += 1.0f;
+                Debug.Log("Button in sight!");
+                //dirty button hack.
+            }
 
             if (Physics.Raycast(hit.transform.position, fwd, out hit2, 10))
             {
-                if (hit.collider.gameObject.tag == "Bot" || hit.collider.gameObject.tag == "Pushable")
+
+                    if (hit.collider.gameObject.tag == "Bot" || hit.collider.gameObject.tag == "Pushable")
                 {
                     Debug.Log(hit.collider.gameObject.transform.position);
 
                     distance2 = Vector3.Distance(hit2.transform.position, hit.transform.position);
-                    distance2 = Mathf.Clamp(Mathf.FloorToInt(distance2) - 1, 0.0f, 10.0f);
+                    distance2 = Mathf.Clamp(Mathf.FloorToInt(distance2 - 0.99f), 0.0f, 10.0f);
                 }
             }
         }
@@ -216,6 +230,7 @@ public class PushyBehavior : MonoBehaviour, IRobot
             toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * angle);
 
             IsSpinning = true;
+            pushyRotate.Play();
         }
     }
 

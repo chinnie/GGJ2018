@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bot
+  - explodable
+  - CanDestroy
+  - Elevator
+  - Pushable
+  - Button
   layers:
   - Default
   - TransparentFX
