@@ -9,38 +9,38 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1110068518875556}
+  m_RootGameObject: {fileID: 1291523678842240}
   m_IsPrefabParent: 1
---- !u!1 &1110068518875556
+--- !u!1 &1291523678842240
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4368690747343966}
-  - component: {fileID: 54406264015625486}
-  - component: {fileID: 138388693449937724}
-  - component: {fileID: 136108588524417016}
-  - component: {fileID: 114481127179137332}
-  - component: {fileID: 114897227874086472}
+  - component: {fileID: 4832933749393238}
+  - component: {fileID: 54023013926478900}
+  - component: {fileID: 138783310071592770}
+  - component: {fileID: 136424085374065248}
+  - component: {fileID: 114472104032847806}
+  - component: {fileID: 114810674977878302}
   m_Layer: 0
-  m_Name: RoboHoppy
+  m_Name: RoboHoppy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1296730465723696
+--- !u!1 &1536767493529078
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4442436795969316}
-  - component: {fileID: 33061767288124190}
-  - component: {fileID: 23163654538611940}
+  - component: {fileID: 4382871034849508}
+  - component: {fileID: 33806610397462648}
+  - component: {fileID: 23484529809951230}
   m_Layer: 0
   m_Name: RoboHoppyModel
   m_TagString: Untagged
@@ -48,39 +48,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4368690747343966
+--- !u!4 &4382871034849508
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1110068518875556}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 0, z: 12}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4442436795969316}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4442436795969316
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1296730465723696}
+  m_GameObject: {fileID: 1536767493529078}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4368690747343966}
+  m_Father: {fileID: 4832933749393238}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23163654538611940
+--- !u!4 &4832933749393238
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1291523678842240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.6319828, y: 1, z: 3.084}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4382871034849508}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23484529809951230
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1296730465723696}
+  m_GameObject: {fileID: 1536767493529078}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -109,19 +109,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33061767288124190
+--- !u!33 &33806610397462648
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1296730465723696}
+  m_GameObject: {fileID: 1536767493529078}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54406264015625486
+--- !u!54 &54023013926478900
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1110068518875556}
+  m_GameObject: {fileID: 1291523678842240}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -131,12 +131,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114481127179137332
+--- !u!114 &114472104032847806
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1110068518875556}
+  m_GameObject: {fileID: 1291523678842240}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96a15fd28800cc6408d31493f48c5a61, type: 3}
@@ -148,12 +148,12 @@ MonoBehaviour:
   jumpDistance: 3
   maxHeightIncrease: 2.1
   jumpDirection: {x: 0, y: 0, z: -1}
---- !u!114 &114897227874086472
+--- !u!114 &114810674977878302
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1110068518875556}
+  m_GameObject: {fileID: 1291523678842240}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 770c056c429e0904aa95ca1b7ecf02c9, type: 3}
@@ -162,12 +162,12 @@ MonoBehaviour:
   _startposition: {x: 0, y: 0, z: 0}
   _endposition: {x: 0, y: 0, z: 0}
   _UseAltBehavior: 0
---- !u!136 &136108588524417016
+--- !u!136 &136424085374065248
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1110068518875556}
+  m_GameObject: {fileID: 1291523678842240}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -175,12 +175,12 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!138 &138388693449937724
+--- !u!138 &138783310071592770
 FixedJoint:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1110068518875556}
+  m_GameObject: {fileID: 1291523678842240}
   m_ConnectedBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity

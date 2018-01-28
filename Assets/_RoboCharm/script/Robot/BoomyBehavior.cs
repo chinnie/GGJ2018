@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BoomyBehavior : MonoBehaviour, IRobot
 {
-    [SerializeField] Vector3 _startposition;
-    [SerializeField] Vector3 _endposition;
+
     [SerializeField] bool _UseAltBehavior = false;
 
     [SerializeField] private GameObject explosion;
