@@ -7,4 +7,5 @@ public interface IRobot
     bool AltBehavior { get; set; }
     bool IsInteracting { get; set; }
     void TriggerAction();
+    void Toggle();
 }

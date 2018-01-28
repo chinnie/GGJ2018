@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BoomyBehavior : MonoBehaviour, IRobot
 {
-    Vector3 _startposition;
-    Vector3 _endposition;
-    bool _UseAltBehavior = false;
+    [SerializeField] Vector3 _startposition;
+    [SerializeField] Vector3 _endposition;
+    [SerializeField] bool _UseAltBehavior = false;
 
     public Vector3 StartPosition
     {
@@ -61,5 +61,11 @@ public class BoomyBehavior : MonoBehaviour, IRobot
     {
 
         Debug.Log("Boomy Go!");
+    }
+
+    public void Toggle()
+    {
+        Debug.Log("Boomy Toggle!");
+        _UseAltBehavior = !_UseAltBehavior;
     }
 }
