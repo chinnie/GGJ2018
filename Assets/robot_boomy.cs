@@ -36,6 +36,16 @@ public class robot_boomy : MonoBehaviour {
             Instantiate(explosion, transform.position, transform.rotation);
             explosionSound.Play();
             Destroy(gameObject);
+
+            var thingsGoBoom = GameObject.FindGameObjectsWithTag("explodable");
+
+            foreach (var goBoom in thingsGoBoom)
+            {
+                Destroy(goBoom.gameObject);
+            }
+
+
+
         }
     }
 
@@ -54,5 +64,15 @@ public class robot_boomy : MonoBehaviour {
     {
         RobotUseful = !RobotUseful;
 
+    }
+    //if touching another object also explode it
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject col = collision.gameObject;
+        if (col.tag == "explodable" & RobotUseful)
+        {
+            Destroy(collision.gameObject);
+            explosionSound.Play();
+        }
     }
 }
