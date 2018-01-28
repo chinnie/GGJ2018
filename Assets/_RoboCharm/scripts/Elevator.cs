@@ -2,7 +2,7 @@
 using NewtonVR;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Valve.VR;
+
 
 namespace _RoboCharm.scripts {
     public class Elevator : MonoBehaviour {

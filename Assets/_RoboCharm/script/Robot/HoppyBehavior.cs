@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HoppyBehavior : MonoBehaviour, IRobot
 {
-    Vector3 _startposition;
-    Vector3 _endposition;
-    bool _UseAltBehavior = false;
+    [SerializeField] Vector3 _startposition;
+    [SerializeField] Vector3 _endposition;
+    [SerializeField] bool _UseAltBehavior = false;
 
     public Vector3 StartPosition
     {
@@ -46,7 +46,7 @@ public class HoppyBehavior : MonoBehaviour, IRobot
         get;
         set;
     }
-    
+
     // Use this for initialization
     void Start()
     {
@@ -61,5 +61,11 @@ public class HoppyBehavior : MonoBehaviour, IRobot
     {
 
         Debug.Log("Hoppy Go!");
+    }
+
+    public void Toggle()
+    {
+        Debug.Log("Hoppy Toggle!");
+        _UseAltBehavior = !_UseAltBehavior;
     }
 }

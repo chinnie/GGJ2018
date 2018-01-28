@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HackyBehavior : MonoBehaviour, IRobot
 {
-    Vector3 _startposition;
-    Vector3 _endposition;
-    bool _UseAltBehavior = false;
+    [SerializeField] Vector3 _startposition;
+    [SerializeField] Vector3 _endposition;
+    [SerializeField] bool _UseAltBehavior = false;
 
     public Vector3 StartPosition
     {
@@ -59,7 +59,28 @@ public class HackyBehavior : MonoBehaviour, IRobot
 
     public void TriggerAction()
     {
-
         Debug.Log("Hacky Go!");
+        // Get list of bots in scene
+
+        var bots = GameObject.FindGameObjectsWithTag("Bot");
+
+        // Call toggle on all bots but this one
+        foreach (var bot in bots)
+        {
+            if (bot.GetComponent<IRobot>() != null)
+            {
+                bot.GetComponent<IRobot>().Toggle();
+            }
+            else
+            {
+                Debug.Log("Bots need tag AND IRobot!");
+            }
+        }
+    }
+
+    public void Toggle()
+    {
+        // Hacky has no toggle state!
+        //_UseAltBehavior = !_UseAltBehavior;
     }
 }
