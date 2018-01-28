@@ -14,6 +14,13 @@ public class PushyBehavior : MonoBehaviour, IRobot
     private float _timeStartedLerping;
     private float timeTakenDuringLerp = 1.0f;
 
+    private bool IsSpinning = false;
+    private float _spintimeStartedLerping;
+    private float spintimeTakenDuringLerp = 1.0f;
+
+    Quaternion fromAngle;
+    Quaternion toAngle;
+
     public Vector3 StartPosition
     {
         get
@@ -58,6 +65,8 @@ public class PushyBehavior : MonoBehaviour, IRobot
         set;
     }
 
+
+
     // Use this for initialization
     void Start()
     {
@@ -70,7 +79,7 @@ public class PushyBehavior : MonoBehaviour, IRobot
         if (_UseAltBehavior)
         {
             //Do a dance
-            _goalposition = new Vector3(transform.position.x, _startposition.y + 2, transform.position.z);
+            //_goalposition = new Vector3(transform.position.x, _startposition.y + 2, transform.position.z);
         }
         else
         {
@@ -89,11 +98,24 @@ public class PushyBehavior : MonoBehaviour, IRobot
                 IsActive = false;
             }
         }
+
+        if (IsSpinning)
+        {
+            float spintimeSinceStarted = Time.time - _spintimeStartedLerping;
+            float spinpercentageComplete = spintimeSinceStarted / spintimeTakenDuringLerp;
+
+            transform.rotation = Quaternion.Lerp(fromAngle, toAngle, spinpercentageComplete);
+
+            if (spinpercentageComplete >= 1.0f)
+            {
+                IsSpinning = false;
+            }
+        }
     }
 
     public void TriggerAction()
     {
-        if (IsActive)
+        if (IsActive || IsSpinning)
         {
             Debug.Log("Busy");
             return;
@@ -143,13 +165,28 @@ public class PushyBehavior : MonoBehaviour, IRobot
             Debug.Log("Nothing to hit!");
             distance = 10.0f;
         }
-    
-        timeTakenDuringLerp = (distance+distance2)/speed;
-        return this.transform.position + transform.forward * (distance+distance2);
+
+        timeTakenDuringLerp = (distance + distance2) / speed;
+        return this.transform.position + transform.forward * (distance + distance2);
     }
 
     public void Spin(bool AlternateBehavior)
     {
-       
+        int angle = 90;
+        _spintimeStartedLerping = Time.time;
+
+        if (AlternateBehavior)
+        {
+            angle =-90;
+        }
+        Debug.Log("Pushy Spin!");
+        if (!IsSpinning && !IsActive)
+        {
+            fromAngle = transform.rotation;
+
+            toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * angle);
+
+            IsSpinning = true;
+        }
     }
 }
