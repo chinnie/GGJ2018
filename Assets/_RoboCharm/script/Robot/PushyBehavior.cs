@@ -96,6 +96,19 @@ public class PushyBehavior : MonoBehaviour, IRobot
             if (percentageComplete >= 1.0f)
             {
                 IsActive = false;
+                var bots = GameObject.FindGameObjectsWithTag("Bot");
+                
+                foreach (var bot in bots)
+                {
+                    if (bot.GetComponent<IRobot>() != null)
+                    {
+                        bot.GetComponent<IRobot>().ReSnapToGrid();
+                    }
+                    else
+                    {
+                        Debug.Log("Bots need tag AND IRobot!");
+                    }
+                }
             }
         }
 
@@ -180,7 +193,7 @@ public class PushyBehavior : MonoBehaviour, IRobot
 
         if (AlternateBehavior)
         {
-            angle =-90;
+            angle = -90;
         }
         Debug.Log("Pushy Spin!");
         if (!IsSpinning && !IsActive)
@@ -191,5 +204,12 @@ public class PushyBehavior : MonoBehaviour, IRobot
 
             IsSpinning = true;
         }
+    }
+
+    public void ReSnapToGrid()
+    {
+        transform.position = new Vector3(Mathf.RoundToInt(transform.position.x),
+            Mathf.RoundToInt(transform.position.y),
+            Mathf.RoundToInt(transform.position.z));
     }
 }

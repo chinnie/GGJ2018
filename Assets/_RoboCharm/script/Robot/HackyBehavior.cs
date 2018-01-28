@@ -88,4 +88,11 @@ public class HackyBehavior : MonoBehaviour, IRobot
     {
 
     }
+
+    public void ReSnapToGrid()
+    {
+        transform.position = new Vector3(Mathf.RoundToInt(transform.position.x),
+            Mathf.RoundToInt(transform.position.y),
+            Mathf.RoundToInt(transform.position.z));
+    }
 }

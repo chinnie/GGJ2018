@@ -9,4 +9,5 @@ public interface IRobot
     void TriggerAction();
     void Toggle();
     void Spin(bool AlternateBehavior);
+    void ReSnapToGrid();
 }
