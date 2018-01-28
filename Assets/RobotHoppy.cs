@@ -28,6 +28,7 @@ public class RobotHoppy : MonoBehaviour
     private float jumpTime;
     private Joint joint;
     private Rigidbody targetRigidbody;
+    private bool wasActive;
 
     // Use this for initialization
     void Start()
@@ -37,14 +38,21 @@ public class RobotHoppy : MonoBehaviour
         jumpDirection.Normalize();
 
         if (isActive) {
-            CalculateEndPosition();
+            CalculateJump();
         }
 
         joint = GetComponent<Joint>();
+        wasActive = isActive;
     }
 
     // Update is called once per frame
     void Update() {
+        if (isActive && !wasActive) {
+            CalculateJump();
+        }
+
+        wasActive = isActive;
+
         if (!isActive) {
             return;
         }
@@ -56,11 +64,16 @@ public class RobotHoppy : MonoBehaviour
             Rigidbody rigidbody = GetComponent<Rigidbody>();
             if (joint != null) {
                 joint.connectedBody = targetRigidbody;
-                rigidbody.isKinematic = false;
+                //rigidbody.isKinematic = false;
 
             }
         }
-        else {
+        else
+        {
+            //Debug.Log(startPosition);
+            //Debug.Log(startVelocity);
+            //Debug.Log(timeElapsed);
+            //Debug.Log(gravity);
             transform.position = startPosition + startVelocity * timeElapsed + 0.5f * gravity * timeElapsed * timeElapsed;
         }
 
@@ -72,15 +85,16 @@ public class RobotHoppy : MonoBehaviour
     {
         //Push will move forward in a straigt line 
         isActive = !isActive;
-        startPosition = transform.position;
-        startTime = Time.time;
         if (isActive) {
-            CalculateEndPosition();
+            CalculateJump();
         }
     }
 
-    private void CalculateEndPosition()
+    private void CalculateJump()
     {
+        startPosition = transform.position;
+        startTime = Time.time;
+
         Rigidbody rigidbody = GetComponent<Rigidbody>();
         rigidbody.isKinematic = true;
 
@@ -97,8 +111,11 @@ public class RobotHoppy : MonoBehaviour
             castStart += up * maxHeightIncrease;
             RaycastHit hitInfo;
             Vector3 targetPoint = FindTargetBelowPoint(castStart);
-            if (float.IsInfinity(targetPoint.sqrMagnitude)) {
-                isActive = false;
+            Debug.Log("targetPoint=" + targetPoint);
+            if (float.IsNaN(targetPoint.sqrMagnitude))
+            {
+                endPosition = startPosition;
+                startVelocity = -0.5f * gravity * desiredJumpTime;
             }
             else {
                 endPosition = targetPoint;
