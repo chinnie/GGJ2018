@@ -37,6 +37,36 @@ public class DebugRayCaster : MonoBehaviour
             else
             {
                 Debug.Log("Not looking at any bot");
+                //var intersection = hit.point;
+
+                //var bots = GameObject.FindGameObjectsWithTag("Bot");
+
+                //// Call toggle on all bots but this one
+                //GameObject closestbot = null;
+
+                //foreach (var bot in bots)
+                //{
+                //    if (bot.GetComponent<IRobot>() != null)
+                //    {
+                //        if (closestbot == null)
+                //        {
+                //            closestbot = bot;
+                //        }
+                //        else
+                //        {
+                //            var botdis = Vector3.Distance(bot.transform.position, intersection);
+                //            var closedis = Vector3.Distance(closestbot.transform.position, intersection);
+
+                //            if (botdis < closedis)
+                //            {
+                //                closestbot = bot;
+                //            }
+                //        }
+                        
+                //    }
+                //}
+                //Debug.Log(intersection + " :: " + closestbot.transform.position);
+                //closestbot.GetComponent<IRobot>().TriggerAction();
             }
         }
 

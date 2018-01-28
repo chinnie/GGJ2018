@@ -8,6 +8,9 @@ public class BoomyBehavior : MonoBehaviour, IRobot
     [SerializeField] Vector3 _endposition;
     [SerializeField] bool _UseAltBehavior = false;
 
+    [SerializeField] private GameObject explosion;
+    [SerializeField] private AudioSource explosionSound;
+
     public Vector3 StartPosition
     {
         get
@@ -59,8 +62,17 @@ public class BoomyBehavior : MonoBehaviour, IRobot
 
     public void TriggerAction()
     {
-
-        Debug.Log("Boomy Go!");
+        if (!_UseAltBehavior)
+        {
+            Debug.Log("Boomy Go!");
+            Instantiate(explosion, transform.position, transform.rotation);
+            explosionSound.Play();
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("Boomy is currently disarmed.");
+        }
     }
 
     public void Toggle()
