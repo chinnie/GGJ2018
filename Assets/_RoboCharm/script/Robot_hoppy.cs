@@ -7,9 +7,7 @@ public class Robot_hoppy : MonoBehaviour {
     [SerializeField] private bool RobotUseful = true;
     [SerializeField] private bool isActive = true;
     [SerializeField] private float speed;
-    [SerializeField] private Vector3 goalPosition;
-    private Vector3 endPosition;
-    private Vector3 startPosition;
+   
 
     // Use this for initialization
     void Start()
