@@ -86,6 +86,18 @@ public class BoomyBehavior : MonoBehaviour, IRobot
             Debug.Log("Boomy Go!");
             Instantiate(explosion, transform.position, transform.rotation);
             explosionSound.Play();
+            float explosionradius = 2.5f;
+
+            var bots = GameObject.FindGameObjectsWithTag("CanDestroy");
+
+            // Call toggle on all bots but this one
+            foreach (var bot in bots)
+            {
+                if (Vector3.Distance(bot.transform.position, transform.position) <= explosionradius)
+                {
+                    Destroy(bot);
+                }
+            }
             Destroy(gameObject);
         }
         else
