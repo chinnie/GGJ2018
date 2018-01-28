@@ -38,9 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-
   m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
-
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -215,14 +213,12 @@ MonoBehaviour:
   sceneNames:
   - test_kam
   - test_tania
-  - test_tania
+  - pushyTest
   - test_tania
   - test_tania
   - test_tania
   sceneLoadRange: 2
-
   sceneSpacing: 6
-
   barrierPrefab: {fileID: 1828405903542120, guid: 097fb1ecf2245224d9c79aec41b48c8b,
     type: 2}
 --- !u!4 &606111847 stripped

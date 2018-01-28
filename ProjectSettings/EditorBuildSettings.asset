@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_RoboCharm/scenes/elevator.unity
+    guid: b3199047d898bcc4294d75335eac9abd
+  - enabled: 1
+    path: Assets/_RoboCharm/scenes/pushyTest.unity
+    guid: 2e2b5e31b5395f94ea3feb44185a6a14
+  - enabled: 1
+    path: Assets/_RoboCharm/scenes/test_tania.unity
+    guid: 58f858ae2900f2d42a1d9f6ae37fd222
