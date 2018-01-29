@@ -22,6 +22,9 @@ namespace _RoboCharm.scripts {
         [SerializeField]
         private GameObject barrierPrefab;
 
+       
+        [SerializeField] private AudioSource ErrorMessage;
+
         //private member variables
         private readonly LinkedList<Vector3> scenePositions = new LinkedList<Vector3>();
         private readonly LinkedList<Scene> scenes = new LinkedList<Scene>();
@@ -194,6 +197,9 @@ namespace _RoboCharm.scripts {
             //SceneManager.sceneLoaded -= OnSceneLoaded;
             //SceneManager.LoadScene("elevator");
             //ResetCurrentScene();
+
+            ErrorMessage.Play();
+
         }
 
         public void PassBarrier () {
