@@ -266,9 +266,8 @@ PlayerSettings:
     m_Devices:
     - Oculus
   - m_BuildTarget: Metro
-    m_Enabled: 1
-    m_Devices:
-    - WindowsMR
+    m_Enabled: 0
+    m_Devices: []
   - m_BuildTarget: N3DS
     m_Enabled: 0
     m_Devices: []
@@ -602,16 +601,15 @@ PlayerSettings:
   webGLUseWasm: 0
   webGLCompressionFormat: 1
   scriptingDefineSymbols:
-    1: CROSS_PLATFORM_INPUT;NVR_WindowsMR
+    1: CROSS_PLATFORM_INPUT;NVR_SteamVR
     4: CROSS_PLATFORM_INPUT;MOBILE_INPUT
     7: CROSS_PLATFORM_INPUT;MOBILE_INPUT
-    14: MOBILE_INPUT;NVR_WindowsMR
+    14: MOBILE_INPUT
     17: MOBILE_INPUT
     20: MOBILE_INPUT
     22: MOBILE_INPUT
   platformArchitecture: {}
   scriptingBackend:
-    Metro: 2
     Standalone: 0
   incrementalIl2cppBuild: {}
   additionalIl2CppArgs: 
@@ -621,11 +619,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: v5
   metroPackageVersion: 
-  metroCertificatePath: Assets\WSATestCertificate.pfx
+  metroCertificatePath: 
   metroCertificatePassword: 
-  metroCertificateSubject: Valve
-  metroCertificateIssuer: Valve
-  metroCertificateNotAfter: 00ef9adc8db7d401
+  metroCertificateSubject: 
+  metroCertificateIssuer: 
+  metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: v5
   wsaImages: {}
   metroTileShortName: 
@@ -639,12 +637,7 @@ PlayerSettings:
   metroTileBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   metroSplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   metroSplashScreenUseBackgroundColor: 0
-  platformCapabilities:
-    WindowsStoreApps:
-      HumanInterfaceDevice: False
-      InternetClient: False
-      InternetClientServer: False
-      PrivateNetworkClientServer: False
+  platformCapabilities: {}
   metroFTAName: 
   metroFTAFileTypes: []
   metroProtocolName: 
