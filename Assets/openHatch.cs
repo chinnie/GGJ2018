@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using _RoboCharm.scripts;
 
-public class openHatch : MonoBehaviour {
+public class levelCompleted : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -17,8 +17,7 @@ public class openHatch : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-       GameObject elevator = GameObject.FindGameObjectWithTag("Elevator");
+        GameObject elevator = GameObject.FindGameObjectWithTag("Elevator");
         elevator.GetComponent<Elevator>().DisableBarrier();
-        GetComponent<Animator>().SetTrigger("Open");
     }
 }
