@@ -185,6 +185,7 @@ namespace _RoboCharm.scripts {
 
         public void DisableBarrier () {
             barriers.First.Value.KillPlayer = false;
+            barriers.First.Value.GetComponentInChildren<ElevatorHatchController>().open();
         }
 
         public void KillPlayer () {
